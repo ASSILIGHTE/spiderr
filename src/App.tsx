@@ -53,7 +53,7 @@ export function App() {
       <FloatingParticlesCanvas />
 
       {/* Global Music & Audio Controls */}
-      <AudioPlayer />
+      <AudioPlayer hideBanner={!missionStarted} />
 
       {/* Main Experience Flow */}
       {!missionStarted ? (

@@ -4,9 +4,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 interface AudioPlayerProps {
   autoStart?: boolean;
+  hideBanner?: boolean;
 }
 
-export const AudioPlayer: React.FC<AudioPlayerProps> = () => {
+export const AudioPlayer: React.FC<AudioPlayerProps> = ({ hideBanner = false }) => {
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [isMuted, setIsMuted] = useState<boolean>(false);
   const [volume, setVolume] = useState<number>(0.6);
@@ -100,7 +101,7 @@ export const AudioPlayer: React.FC<AudioPlayerProps> = () => {
       <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-2">
         {/* Autoplay Blocked Banner */}
         <AnimatePresence>
-          {showPrompt && !isPlaying && (
+          {!hideBanner && showPrompt && !isPlaying && (
             <motion.button
               initial={{ opacity: 0, y: 10, scale: 0.9 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
