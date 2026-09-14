@@ -41,13 +41,13 @@ export const Spiderman3D: React.FC<Spiderman3DProps> = ({ className = '', onWebS
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
     scene.add(ambientLight);
 
-    const redSpotLight = new THREE.SpotLight(0xe50914, 6);
+    const redSpotLight = new THREE.SpotLight(0xff2a85, 6);
     redSpotLight.position.set(5, 5, 5);
     redSpotLight.angle = Math.PI / 4;
     redSpotLight.penumbra = 0.8;
     scene.add(redSpotLight);
 
-    const blueSpotLight = new THREE.SpotLight(0x0055ff, 5);
+    const blueSpotLight = new THREE.SpotLight(0x00e5ff, 5);
     blueSpotLight.position.set(-5, -3, 4);
     blueSpotLight.angle = Math.PI / 4;
     blueSpotLight.penumbra = 0.8;
@@ -61,7 +61,7 @@ export const Spiderman3D: React.FC<Spiderman3DProps> = ({ className = '', onWebS
     const spidermanGroup = new THREE.Group();
     scene.add(spidermanGroup);
 
-    // --- A. 3D Head Mesh (Red Suit) ---
+    // --- A. 3D Head Mesh (Pink Suit) ---
     const headGeometry = new THREE.SphereGeometry(1.3, 64, 64);
     // Slightly taper jawline for Spider-Man head shape
     const pos = headGeometry.attributes.position;
@@ -79,7 +79,7 @@ export const Spiderman3D: React.FC<Spiderman3DProps> = ({ className = '', onWebS
     headGeometry.computeVertexNormals();
 
     const suitMaterial = new THREE.MeshPhysicalMaterial({
-      color: 0xe50914,
+      color: 0xff2a85,
       roughness: 0.35,
       metalness: 0.2,
       clearcoat: 0.4,

@@ -7,11 +7,11 @@ export const CornerWebTL: React.FC<{ className?: string }> = ({ className = "" }
     fill="none" 
     xmlns="http://www.w3.org/2000/svg"
   >
-    <path d="M0,0 L200,0 M0,0 L0,200 M0,0 L180,180 M0,0 L70,190 M0,0 L190,70" stroke="rgba(229,9,20,0.4)" strokeWidth="1.5" />
-    <path d="M0,40 Q40,40 40,0 M0,80 Q80,80 80,0 M0,120 Q120,120 120,0 M0,160 Q160,160 160,0 M0,200 Q200,200 200,0" stroke="rgba(229,9,20,0.3)" strokeWidth="1" />
-    <circle cx="40" cy="40" r="2" fill="#E50914" />
-    <circle cx="80" cy="80" r="2" fill="#E50914" />
-    <circle cx="120" cy="120" r="2" fill="#0055FF" />
+    <path d="M0,0 L200,0 M0,0 L0,200 M0,0 L180,180 M0,0 L70,190 M0,0 L190,70" stroke="rgba(255,42,133,0.5)" strokeWidth="1.5" />
+    <path d="M0,40 Q40,40 40,0 M0,80 Q80,80 80,0 M0,120 Q120,120 120,0 M0,160 Q160,160 160,0 M0,200 Q200,200 200,0" stroke="rgba(255,42,133,0.35)" strokeWidth="1" />
+    <circle cx="40" cy="40" r="2.5" fill="#FF2A85" />
+    <circle cx="80" cy="80" r="2.5" fill="#FF66B2" />
+    <circle cx="120" cy="120" r="2.5" fill="#00E5FF" />
   </svg>
 );
 
@@ -22,10 +22,10 @@ export const CornerWebTR: React.FC<{ className?: string }> = ({ className = "" }
     fill="none" 
     xmlns="http://www.w3.org/2000/svg"
   >
-    <path d="M200,0 L0,0 M200,0 L200,200 M200,0 L20,180 M200,0 L130,190 M200,0 L10,70" stroke="rgba(229,9,20,0.4)" strokeWidth="1.5" />
-    <path d="M200,40 Q160,40 160,0 M200,80 Q120,80 120,0 M200,120 Q80,120 80,0 M200,160 Q40,160 40,0 M200,200 Q0,200 0,0" stroke="rgba(229,9,20,0.3)" strokeWidth="1" />
-    <circle cx="160" cy="40" r="2" fill="#E50914" />
-    <circle cx="120" cy="80" r="2" fill="#0055FF" />
+    <path d="M200,0 L0,0 M200,0 L200,200 M200,0 L20,180 M200,0 L130,190 M200,0 L10,70" stroke="rgba(255,42,133,0.5)" strokeWidth="1.5" />
+    <path d="M200,40 Q160,40 160,0 M200,80 Q120,80 120,0 M200,120 Q80,120 80,0 M200,160 Q40,160 40,0 M200,200 Q0,200 0,0" stroke="rgba(255,42,133,0.35)" strokeWidth="1" />
+    <circle cx="160" cy="40" r="2.5" fill="#FF2A85" />
+    <circle cx="120" cy="80" r="2.5" fill="#00E5FF" />
   </svg>
 );
 
@@ -50,13 +50,13 @@ export const FloatingParticlesCanvas: React.FC = () => {
 
     window.addEventListener('resize', handleResize);
 
-    // Particle array: mix of subtle red embers, blue web glints, and white sparkles
-    const particles = Array.from({ length: 45 }, () => ({
+    // Particle array: mix of pink embers, cyan glints, and soft rose sparkles
+    const particles = Array.from({ length: 50 }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
-      radius: Math.random() * 2.2 + 0.6,
-      color: Math.random() > 0.4 ? 'rgba(229, 9, 20, ' : Math.random() > 0.5 ? 'rgba(0, 85, 255, ' : 'rgba(255, 204, 0, ',
-      alpha: Math.random() * 0.6 + 0.2,
+      radius: Math.random() * 2.5 + 0.7,
+      color: Math.random() > 0.4 ? 'rgba(255, 42, 133, ' : Math.random() > 0.5 ? 'rgba(0, 229, 255, ' : 'rgba(255, 192, 203, ',
+      alpha: Math.random() * 0.7 + 0.25,
       vx: (Math.random() - 0.5) * 0.6,
       vy: -Math.random() * 0.8 - 0.2,
       pulse: Math.random() * 0.05
@@ -79,9 +79,9 @@ export const FloatingParticlesCanvas: React.FC = () => {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `${p.color}${Math.max(0.1, Math.min(0.8, p.alpha))})`;
-        ctx.shadowBlur = 8;
-        ctx.shadowColor = p.color.includes('229') ? '#E50914' : '#0055FF';
+        ctx.fillStyle = `${p.color}${Math.max(0.15, Math.min(0.85, p.alpha))})`;
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = p.color.includes('255, 42') ? '#FF2A85' : '#00E5FF';
         ctx.fill();
         ctx.shadowBlur = 0;
       });
@@ -97,5 +97,5 @@ export const FloatingParticlesCanvas: React.FC = () => {
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none z-0 opacity-70" />;
+  return <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none z-0 opacity-80" />;
 };
